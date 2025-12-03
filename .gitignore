@@ -1,0 +1,59 @@
+# Arquivos de Build Temporários e Saídas
+#############################################
+[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+[Tt]emp/
+[Rr]esharper[Tt]emp/
+*.user
+*.suo
+*.pdb
+*.pri.pdb
+*.ide-version
+
+# Pacotes e Ferramentas
+#############################################
+# Diretório de pacotes NuGet
+[Pp]ackages/
+# Diretório de restauração de pacotes (usado no .NET Core/5+)
+**/publish/
+**/build/
+**/log/
+
+# Testes e Cobertura
+#############################################
+# Arquivos de cobertura de código
+*.trx
+*.coverage
+*.coveragexml
+
+# Configurações e Metadados do Visual Studio
+#############################################
+# Pasta de metadados do VS (o que causou seu erro anterior)
+.vs/
+# Arquivos de solução e projeto que são gerados dinamicamente
+*.log
+*.filter
+*.*proj.user
+
+# Variáveis de Ambiente e Arquivos de Configuração Sensíveis
+#############################################################
+# Arquivos de settings locais (para evitar que chaves secretas sejam commitadas)
+appsettings.Development.json
+appsettings.Staging.json
+appsettings.Production.json
+# Pode ser necessário adicionar outros arquivos de configuração que contenham senhas ou chaves.
+
+# Dependências da Web (como no ASP.NET Core)
+#############################################
+wwwroot/lib/ # Se você estiver usando ferramentas como bower/npm para gerenciar bibliotecas no wwwroot
+
+# Diretório de módulos Node (se o projeto usar Node/NPM)
+node_modules/
+
+# Logs e Dados
+#############################################
+*.sqlite # Ignora o banco de dados SQLite (se for usado)
+*.db
+*.bak
