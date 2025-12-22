@@ -5,7 +5,7 @@ namespace seed_desafio_cdc_api.Validations
 {
     public class EmailAlreadyExists : ValidationAttribute
     {
-        
+
         protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
         {
             var context = validationContext.GetService<AppDbContext>();
@@ -15,9 +15,14 @@ namespace seed_desafio_cdc_api.Validations
                 throw new InvalidOperationException("AppDbContext não está disponível no ValidationContext.");
             }
 
-            var emailJaExiste = context.Autores.Any(u => u.Email == (string?)value);
+            var email = (string?)value;
 
-            if (emailJaExiste)
+            if (email == null)
+            {
+                return new ValidationResult(ErrorMessage ?? "Email não informado.");
+            }
+
+            if (context.EmailJaCadastrado(email))
             {
                 return new ValidationResult(ErrorMessage ?? "Email já cadastrado.");
             }

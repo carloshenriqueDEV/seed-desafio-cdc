@@ -5,6 +5,8 @@ VisualStudioVersion = 17.13.35919.96
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "seed-desafio-cdc-api", "seed-desafio-cdc-api.csproj", "{73FE1A6F-B894-EBC5-E3E4-F78352946895}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "seed-desafio-cdc-api-tests", "..\seed-desafio-cdc-api-tests\seed-desafio-cdc-api-tests.csproj", "{865ADE33-035D-4B62-9578-2012F6C89525}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{73FE1A6F-B894-EBC5-E3E4-F78352946895}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73FE1A6F-B894-EBC5-E3E4-F78352946895}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73FE1A6F-B894-EBC5-E3E4-F78352946895}.Release|Any CPU.Build.0 = Release|Any CPU
+		{865ADE33-035D-4B62-9578-2012F6C89525}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{865ADE33-035D-4B62-9578-2012F6C89525}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{865ADE33-035D-4B62-9578-2012F6C89525}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{865ADE33-035D-4B62-9578-2012F6C89525}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

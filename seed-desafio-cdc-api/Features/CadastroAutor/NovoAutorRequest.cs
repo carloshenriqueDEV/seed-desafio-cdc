@@ -17,9 +17,9 @@ namespace seed_desafio_cdc_api.Features.CadastroAutor
         [MaxLength(400, ErrorMessage = "O campo descrição deve ter no máximo 400 caracteres.")]
         public string Descricao { get; set; }
 
-        public Autor ToModel()
+        public Autor ToModel(IAutorRepository autorRepository)
         {
-            return new Autor(Nome, Email, Descricao);
+            return new Autor(Nome, Email, Descricao, autorRepository);
         }
     }
 }

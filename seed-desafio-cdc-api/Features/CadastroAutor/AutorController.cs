@@ -16,7 +16,7 @@ namespace seed_desafio_cdc_api.Features.CadastroAutor
         [HttpPost]
         public ActionResult<NovoAutorResponse> NovoAutor([FromBody] NovoAutorRequest request)
         {
-            var autor = request.ToModel();
+            var autor = request.ToModel(_context);
 
             _context.Autores.Add(autor);
 
