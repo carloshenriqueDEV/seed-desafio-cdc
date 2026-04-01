@@ -2,6 +2,6 @@
 {
     public interface IAutorRepository
     {
-        public bool EmailJaCadastrado(string email);
+        public List<Autor> ObterAutores();
     }
 }

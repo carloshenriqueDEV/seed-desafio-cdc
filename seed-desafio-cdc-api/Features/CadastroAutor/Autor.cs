@@ -1,4 +1,6 @@
-﻿namespace seed_desafio_cdc_api.Features.CadastroAutor
+﻿using seed_desafio_cdc_api.Features.CadastroLivro;
+
+namespace seed_desafio_cdc_api.Features.CadastroAutor
 {
     public class Autor
     {
@@ -7,10 +9,11 @@
         public string Email { get; private set; }
         public string Descricao { get; private set; }
         public DateTime RegistradoEm { get; private set; }
+        public ICollection<Livro> Livros { get; private set; } = new List<Livro>();
 
-        public Autor(string nome, string email, string descricao, IAutorRepository autorRepository)
+        public Autor(string nome, string email, string descricao)
         {
-            Validacoes(nome, email, descricao, autorRepository);
+            Validacoes(nome, email, descricao);
 
             Nome = nome;
             Email = email;
@@ -18,14 +21,19 @@
             RegistradoEm = DateTime.Now;
         }
 
-        private void Validacoes(string nome, string email, string descricao, IAutorRepository autorRepository)
+        protected Autor()
+        {
+            // Construtor vazio para EF
+        }
+
+        private void Validacoes(string nome, string email, string descricao)
         {
             NomeValido(nome);
-            EmailValido(email, autorRepository);
+            EmailValido(email);
             DescricaoValida(descricao);
         }
 
-        private void EmailValido(string email, IAutorRepository autorRepository)
+        private void EmailValido(string email)
         {
             if (string.IsNullOrEmpty(email))
             {
@@ -35,10 +43,6 @@
             if (!email.Contains("@"))
             {
                 throw new Exception("O campo email deve ser um endereço de email válido.");
-            }
-            if (autorRepository.EmailJaCadastrado(email))
-            {
-                throw new Exception("O campo email já está cadastrado.");
             }
         }
 

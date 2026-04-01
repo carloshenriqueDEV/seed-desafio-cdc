@@ -11,15 +11,15 @@ namespace seed_desafio_cdc_api.Features.CadastroAutor
         public string Nome { get; set; }
         [Required(ErrorMessage = "O campo email é obrigatório.")]
         [EmailAddress(ErrorMessage = "O campo email deve ser um endereço de email válido.")]
-        [EmailAlreadyExists]
+        [ItsUnique(EntityName = "Autor", PropertyName = "Email", ErrorMessage = "Email já cadastrado.")]
         public string Email { get; set; }
         [Required(ErrorMessage = "O campo descrição é obrigatório.")]
         [MaxLength(400, ErrorMessage = "O campo descrição deve ter no máximo 400 caracteres.")]
         public string Descricao { get; set; }
 
-        public Autor ToModel(IAutorRepository autorRepository)
+        public Autor ToModel()
         {
-            return new Autor(Nome, Email, Descricao, autorRepository);
+            return new Autor(Nome, Email, Descricao);
         }
     }
 }
